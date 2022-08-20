@@ -117,7 +117,7 @@ void display ()         //for display the numbers and matrix
 {
     int q=1;
                         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),13);
-    printf("\t\t\t\tWelCome To NumGame\n");
+    printf("\t\t\t\t>>>>>>> WelCome To NumGame  <<<<<<<\n");
                         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
     printf("\n\t( Hello %s...)\n ",n);
                         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);

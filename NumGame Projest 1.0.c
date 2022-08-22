@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<time.h>
+#include<time.h>vdfvxsdf
 #include<conio.h>
 #include<windows.h>
 
@@ -18,6 +18,7 @@ int main()
     rules();
 
     random(&a[4][4]);
+
 
     play(&a[4][4]);
 
@@ -111,13 +112,14 @@ void random()           //random function is for generate every time random numb
                 a[i][j] = n[k++];
             }
         }
+
 }   //random()end
 
 void display ()         //for display the numbers and matrix
 {
     int q=1;
                         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),13);
-    printf("\t\t\t\t>>>>>>> WelCome To NumGame  <<<<<<<\n");
+    printf("\n\n\t\t\t\t>>>>>>> WelCome To NumGame <<<<<<<<\n");
                         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
     printf("\n\t( Hello %s...)\n ",n);
                         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
@@ -146,24 +148,39 @@ void display ()         //for display the numbers and matrix
 
 int issort()
 {
-  int n = 4;
-  int count=0;
-  int d=1;
-  for(int i = 0; i<n; i++)
+  int d=1,count=0;
+
+  for(int i = 0; i<4; i++)
   {
-      for(int j = 0; j<n; j++)
+
+      for(int j = 0; j<4; j++)
       {
-          if(a[i][j]==d);
-          {
-              count++;
-          }
-           d++;
+        if(a[i][j]==d);
+        {
+            if(a[i][j]==d)
+            {
+                count++;
+            }
+        }
+            if(d==15)
+            {
+              d=-1;
+            }
+            d++;
       }
 
   }
-  if(count==15)
+if(count==16)
   {
-      printf("you won");
+      if(a[4][4]==0)
+      {
+          display();
+      }
+                            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+      printf("\n\n\n\t<<<<<<<<<< Congratulation You Won !! >>>>>>>>>>>>>>");
+                            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+      count=0;
+      getch();
       return 1;
   }
   else{
@@ -174,7 +191,7 @@ int issort()
 
 void play()
 {
-    int move=100;
+    int move=300;
     while(move!=0)
     {
 
@@ -210,9 +227,8 @@ void play()
                     a[i][j]=a[i][j+1];
                     a[i][j+1]=0;
                     move--;
-                if(issort()==1){
-                    printf("\n\tYou Win, in %d Moves", move);
-                   }
+
+                    issort();
                     break;
                 }
 
@@ -223,9 +239,7 @@ void play()
                     a[i][j]=a[i][j-1];
                     a[i][j-1]=0;
                     move--;
-                    if(issort()==1){
-                        printf("\n\tYou Win, in %d Moves", move);
-                    }
+                    issort();
                     break;
                 }
 
@@ -236,10 +250,9 @@ void play()
                     a[i][j]=a[i+1][j];
                     a[i+1][j]=0;
                     move--;
-                if(issort()==1){
-                    printf("\n\tYou Win, in %d Moves", move);
-                  }
+                    issort();
                     break;
+
                 }
 
             case 80:
@@ -249,9 +262,7 @@ void play()
                     a[i][j]=a[i-1][j];
                     a[i-1][j]=0;
                     move--;
-                    if(issort()==1){
-                        printf("\n\tYou Win, in %d Moves", move);
-                    }
+                    issort();
                     break;
                 }
             case 69:
@@ -286,19 +297,22 @@ void play()
 
         if(move == 0)
         {
-                                        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+                                        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 71);
 
-            printf("\n\t\tYou loosed the Game!\n\n");
+            printf("   \n\n\n\n\n\n\t   You loosed the Game !!   \n\n");
 
                                         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
 
-            printf("\n\tIf you want to play again then press 1 else 0 :  \n\n\n\n\n\n\n\n\n\n\n\n\n");
-                                        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            printf("\n \tIf you want to play again then \n\tpress : 1  else Press : 0   \t");
+                                        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
             int x;
             scanf("%d", &x);
+                                        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t  Created By Rishi...   ");
+                                        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
             if(x == 1)
             {
-                move = 50;
+                move = 100;
                 system("cls");
             }
             else
@@ -310,3 +324,4 @@ void play()
     }//while end
 
 }//play();
+
